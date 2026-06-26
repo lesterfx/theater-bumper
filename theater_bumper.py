@@ -3,7 +3,10 @@ import threading
 import time
 
 from pixel_display.pixel_display import PixelDisplay
-from dimmer_read.dimmer_read import DimmerRead
+try:
+    from dimmer_read.dimmer_read import DimmerRead
+except ImportError:
+    from dimmer_read.fake_read import FakeRead as DimmerRead
 
 class TheaterBumper:
     def __init__(self):

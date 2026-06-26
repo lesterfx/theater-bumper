@@ -67,3 +67,8 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+
+# Python
+*.pyc
+__pycache__/
+*.txt

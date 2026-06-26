@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 
 import serial
-import time
 
 class DimmerRead:
     def __init__(self, parent):
         self.parent = parent
         self.ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=.1)
-        # time.sleep(2)  # let Arduino reset/settle
         self.value = 0
 
     def read_forever(self):
@@ -18,7 +16,6 @@ class DimmerRead:
                     continue
                 try:
                     self.value = float(line)
-                    # print(f"Phase angle: {value:.09f}")
                 except ValueError:
                     print(f"Non-numeric line: {line}")
         except KeyboardInterrupt:
